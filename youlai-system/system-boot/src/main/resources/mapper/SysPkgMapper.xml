@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youlai.system.mapper.SysPkgMapper">
+
+    <resultMap id="BaseResultMap" type="com.youlai.system.model.entity.PkgEntity">
+        <!--@Table sys_pkg-->
+            <result property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="code" column="code" jdbcType="VARCHAR"/>
+            <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+            <result property="treePath" column="tree_path" jdbcType="VARCHAR"/>
+            <result property="sort" column="sort" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="pkgType" column="pkg_type" jdbcType="VARCHAR"/>
+            <result property="location" column="location" jdbcType="VARCHAR"/>
+            <result property="sendDate" column="send_date" jdbcType="TIMESTAMP"/>
+            <result property="toDate" column="to_date" jdbcType="TIMESTAMP"/>
+            <result property="deleted" column="deleted" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+id,
+name,
+code,
+parent_id,
+tree_path,
+sort,
+status,
+pkg_type,
+
+location,
+send_date,
+to_date,
+deleted,
+create_time,
+update_time
+
+    </sql>
+
+<!--    &lt;!&ndash; 批量插入 &ndash;&gt;-->
+<!--    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">-->
+<!--        insert into youlai_system.sys_pkg(name, code, parent_id, tree_path, sort, status, pkg_type, location, send_date, to_date, deleted, create_time, update_time)-->
+<!--        values-->
+<!--        <foreach collection="entities" item="entity" separator=",">-->
+<!--        (#{entity.name}, #{entity.code}, #{entity.parentId}, #{entity.treePath}, #{entity.sort}, #{entity.status}, #{entity.pkgType}, #{entity.location}, #{entity.sendDate}, #{entity.toDate}, #{entity.deleted}, #{entity.createTime}, #{entity.updateTime})-->
+<!--        </foreach>-->
+<!--    </insert>-->
+<!--    &lt;!&ndash; 批量插入或按主键更新 &ndash;&gt;-->
+<!--    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">-->
+<!--        insert into youlai_system.sys_pkg(name, code, parent_id, tree_path, sort, status, pkg_type, location, send_date, to_date, deleted, create_time, update_time)-->
+<!--        values-->
+<!--        <foreach collection="entities" item="entity" separator=",">-->
+<!--            (#{entity.name}, #{entity.code}, #{entity.parentId}, #{entity.treePath}, #{entity.sort}, #{entity.status}, #{entity.pkgType}, #{entity.location}, #{entity.sendDate}, #{entity.toDate}, #{entity.deleted}, #{entity.createTime}, #{entity.updateTime})-->
+<!--        </foreach>-->
+<!--        on duplicate key update-->
+<!--name = values(name) , code = values(code) , parent_id = values(parent_id) , tree_path = values(tree_path) , sort = values(sort) , status = values(status) , pkg_type = values(pkg_type) , location = values(location) , send_date = values(send_date) , to_date = values(to_date) , deleted = values(deleted) , create_time = values(create_time) , update_time = values(update_time)     </insert>-->
+
+</mapper>
+
