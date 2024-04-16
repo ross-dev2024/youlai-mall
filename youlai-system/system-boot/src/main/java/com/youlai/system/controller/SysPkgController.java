@@ -1,11 +1,15 @@
 package com.youlai.system.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.youlai.common.result.PageResult;
 import com.youlai.common.result.Result;
 import com.youlai.system.model.form.PkgForm;
+import com.youlai.system.model.query.PkgDetailPageQuery;
 import com.youlai.system.model.query.PkgPageQuery;
+import com.youlai.system.model.vo.PkgDetailPageVO;
 import com.youlai.system.model.vo.PkgPageVO;
+import com.youlai.system.service.SysPkgDetailService;
 import com.youlai.system.service.SysPkgService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -30,13 +34,18 @@ public class SysPkgController  {
     /**
      * サービスオブジェクト
      */
-    private final SysPkgService service;
+    private final SysPkgService pkgService;
+
+    /**
+     * サービスオブジェクト
+     */
+    private final SysPkgDetailService detailService;
 
     @Operation(summary = "分页列表")
     @GetMapping("/page")
     public PageResult<PkgPageVO> getPage(
             @ParameterObject PkgPageQuery queryParams) {
-        IPage<PkgPageVO> result = service.getPage(queryParams);
+        IPage<PkgPageVO> result = pkgService.getPage(queryParams);
         return PageResult.success(result);
     }
 
@@ -45,7 +54,7 @@ public class SysPkgController  {
 //    @PreAuthorize("@ss.hasPerm('sys:role:add')")
 //    @PreventDuplicateResubmit
     public Result create(@Valid @RequestBody PkgForm form) {
-        boolean result = service.savePkg(form);
+        boolean result = pkgService.savePkg(form);
         return Result.judge(result);
     }
 
@@ -54,7 +63,7 @@ public class SysPkgController  {
     @PutMapping(value = "/{pkgId}")
 //    @PreAuthorize("@ss.hasPerm('sys:role:edit')")
     public Result update(@Valid @RequestBody PkgForm form) {
-        boolean result = service.savePkg(form);
+        boolean result = pkgService.savePkg(form);
         return Result.judge(result);
     }
 
@@ -64,7 +73,7 @@ public class SysPkgController  {
     public Result deletes(
             @Parameter(description ="删除，多个以英文逗号(,)分割") @PathVariable String ids
     ) {
-        boolean result = service.deletePkgs(ids);
+        boolean result = pkgService.deletePkgs(ids);
         return Result.judge(result);
     }
 
@@ -74,9 +83,24 @@ public class SysPkgController  {
             @Parameter(description ="ID") @PathVariable Long pkgId,
             @Parameter(description ="状态(1:启用;0:禁用)") @RequestParam Integer status
     ) {
-        boolean result = service.updatePkgStatus(pkgId, status);
+        boolean result = pkgService.updatePkgStatus(pkgId, status);
         return Result.judge(result);
     }
 
+    @Operation(summary = "分页列表")
+    @GetMapping("/detail/pages")
+    public PageResult<PkgDetailPageVO> getPage(
+            @ParameterObject PkgDetailPageQuery queryParams) {
+
+
+        // 查询参数
+        int pageNum = queryParams.getPageNum();
+        int pageSize = queryParams.getPageSize();
+        String keywords = queryParams.getKeywords();
+
+        IPage<PkgDetailPageVO> result = detailService.selectPkgDetailPage(queryParams);
+
+        return PageResult.success(result);
+    }
 }
 

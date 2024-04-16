@@ -21,21 +21,21 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-id,
-name,
-code,
-parent_id,
-tree_path,
-sort,
-status,
-pkg_type,
+        id,
+        name,
+        code,
+        parent_id,
+        tree_path,
+        sort,
+        status,
+        pkg_type,
 
-location,
-send_date,
-to_date,
-deleted,
-create_time,
-update_time
+        location,
+        send_date,
+        to_date,
+        deleted,
+        create_time,
+        update_time
 
     </sql>
 

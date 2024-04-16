@@ -2,20 +2,24 @@
 	"activeGroup":"Default",
 	"apiParamGroup":{},
 	"childList":[],
-	"classDescription":"部门表(SysPkg)表控制层",
 	"description":"",
 	"directory":"/.fastRequest/collections/Root/system-boot/SysPkgController",
 	"domain":"http://localhost:8800",
 	"enableEnv":"dev",
 	"enableProject":"system-boot",
 	"filePath":"/.fastRequest/collections/Root/system-boot/SysPkgController~getPage.rapi",
+	"headerList":[
+		{
+			"enabled":true,
+			"type":"Authorization",
+			"value":"Bearer eyJraWQiOiI5YjBlZDU3YS03NjE5LTRlMDEtOGU2OC1lYWMzYzk5ZDA5ZjkiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6Imh0dHA6Ly8xOTIuMTY4LjAuNzY6OTAwMCIsImRlcHRJZCI6MiwiZGF0YVNjb3BlIjowLCJ1c2VySWQiOjIsImF1dGhvcml0aWVzIjpbIkFETUlOIl0sImF1ZCI6Im1hbGwtYWRtaW4iLCJuYmYiOjE3MTI3MjA5MjMsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiXSwiZXhwIjoxNzEyODA3MzIzLCJpYXQiOjE3MTI3MjA5MjMsImp0aSI6IjA3ZmNkOGI0LWI0NTMtNGU2MC04YmI5LTAyMTBmNDA5OWVhMiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.GDs8wIKVSIV_laJhWnby7I_aITYIOR_0_RAwnLttQHAQKDAd_Yr8jhIODggpwEPRiaR_RoEiypGLqYutgKO6k9B1A-bueCLjSmWzIl0vZBZmegnlXifQ5H2jbW5ckQNQt1hnPtRm1R7td_2DiKWUpLGhgEw3I1DpxLPPwCTHvtsudHtNhsJVL0GEXLMVQJxZUy_cAlqjeEZn0T3y3zczS8Mx5mqg_eU1v_hZoN4-j3lWp55b6KYHZvFgJRtccD8mn7kdJ0S_xncJvWd42gVtGxdgSC4S3O9Gti39-ulJSUbX9pan4bRR9uQww_sN7K-W_PY3lsydTlGFrXeltsWI1A eyJraWQiOiI5YjBlZDU3YS03NjE5LTRlMDEtOGU2OC1lYWMzYzk5ZDA5ZjkiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6Imh0dHA6Ly8xOTIuMTY4LjAuNzY6OTAwMCIsImRlcHRJZCI6MiwiZGF0YVNjb3BlIjowLCJ1c2VySWQiOjIsImF1dGhvcml0aWVzIjpbIkFETUlOIl0sImF1ZCI6Im1hbGwtYWRtaW4iLCJuYmYiOjE3MTI3MjA5MjMsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiXSwiZXhwIjoxNzEyODA3MzIzLCJpYXQiOjE3MTI3MjA5MjMsImp0aSI6IjA3ZmNkOGI0LWI0NTMtNGU2MC04YmI5LTAyMTBmNDA5OWVhMiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.GDs8wIKVSIV_laJhWnby7I_aITYIOR_0_RAwnLttQHAQKDAd_Yr8jhIODggpwEPRiaR_RoEiypGLqYutgKO6k9B1A-bueCLjSmWzIl0vZBZmegnlXifQ5H2jbW5ckQNQt1hnPtRm1R7td_2DiKWUpLGhgEw3I1DpxLPPwCTHvtsudHtNhsJVL0GEXLMVQJxZUy_cAlqjeEZn0T3y3zczS8Mx5mqg_eU1v_hZoN4-j3lWp55b6KYHZvFgJRtccD8mn7kdJ0S_xncJvWd42gVtGxdgSC4S3O9Gti39-ulJSUbX9pan4bRR9uQww_sN7K-W_PY3lsydTlGFrXeltsWI1A"
+		}
+	],
 	"id":"api_com.youlai.system.controller.SysPkgController.getPage",
 	"name":"分页列表",
 	"paramGroup":{
 		"bodyKeyValueListJson":"",
-		"classDescription":"部门表(SysPkg)表控制层",
 		"className":"com.youlai.system.controller.SysPkgController",
-		"headerParamsKeyValueList":[],
 		"jsonDocument":"",
 		"method":"getPage",
 		"methodDescription":"分页列表",
@@ -28,14 +32,12 @@
 		"preScript":"",
 		"returnDocument":"{\"code\":\"No comment,Type =String\",\"data\":{\"list\":[{}],\"total\":\"No comment,Type =Number\"},\"msg\":\"No comment,Type =String\"}",
 		"tempId":"",
-		"url":"/api/v1/pkg/page",
+		"url":"/api/v1/pkg/detail/pages",
 		"urlEncodedKeyValueListJson":"[]",
 		"urlEncodedKeyValueListText":"",
 		"urlParamsKeyValueListJson":"[{\"comment\":\"\",\"customFlag\":2,\"enabled\":true,\"key\":\"keywords\",\"type\":\"String\",\"value\":\"keywords_2wegp\"},{\"comment\":\"\",\"customFlag\":2,\"enabled\":true,\"key\":\"status\",\"type\":\"Number\",\"value\":1},{\"comment\":\"\",\"customFlag\":2,\"enabled\":true,\"key\":\"pageNum\",\"type\":\"Number\",\"value\":1},{\"comment\":\"\",\"customFlag\":2,\"enabled\":true,\"key\":\"pageSize\",\"type\":\"Number\",\"value\":1}]",
 		"urlParamsKeyValueListText":"keywords=keywords_2wegp\n&status=1\n&pageNum=1\n&pageSize=1"
 	},
-	"pmRequestId":"",
-	"pmResponseId":"",
 	"tempId":"api_com.youlai.system.controller.SysPkgController.getPage",
 	"type":2
 }
