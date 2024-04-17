@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 public class PkgDetailPageVO {
     @Schema(description = "${column.comment}")
-    private Integer id;
+    private Long id;
 
 //    @Schema(description = "包裹ID")
 //    private Integer pkgId;

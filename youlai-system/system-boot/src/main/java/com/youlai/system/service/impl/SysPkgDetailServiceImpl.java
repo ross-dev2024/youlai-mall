@@ -1,18 +1,26 @@
 package com.youlai.system.service.impl;
 
+import cn.hutool.core.lang.Assert;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.youlai.system.converter.PkgConverter;
+import com.youlai.system.converter.PkgDetailConverter;
 import com.youlai.system.mapper.SysPkgDetailMapper;
 import com.youlai.system.model.bo.UserBO;
 import com.youlai.system.model.entity.PkgDetailEntity;
+import com.youlai.system.model.entity.PkgDetailEntity;
+import com.youlai.system.model.form.PkgDetailForm;
 import com.youlai.system.model.query.PkgDetailPageQuery;
 import com.youlai.system.model.vo.PkgDetailPageVO;
+import com.youlai.system.model.vo.PkgDetailVO;
 import com.youlai.system.service.SysPkgDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,6 +32,8 @@ import java.util.List;
 @Service("sysPkgDetailService")
 @RequiredArgsConstructor
 public class SysPkgDetailServiceImpl extends ServiceImpl<SysPkgDetailMapper, PkgDetailEntity> implements SysPkgDetailService {
+
+    private final PkgDetailConverter converter;
 
     @Override
     public Page<PkgDetailPageVO> selectPkgDetailPage(PkgDetailPageQuery queryParams) {
@@ -64,6 +74,64 @@ public class SysPkgDetailServiceImpl extends ServiceImpl<SysPkgDetailMapper, Pkg
 //        </if>
 
         return baseMapper.selectPkgDetailPage(page, queryParams);
+    }
+
+
+    /**
+     * 保存角色
+     *
+     * @param form 角色表单数据
+     * @return {@link Boolean}
+     */
+    @Override
+    public boolean createOrUpdate(Long id, PkgDetailForm form) {
+
+        PkgDetailEntity entity = null;
+        if (id != null) {
+            entity = this.getById(id);
+            Assert.isTrue(entity != null, "pkg不存在");
+
+        }
+
+        // 实体转换
+        entity = converter.form2Entity(form);
+        if (id != null) {
+            entity.setId(id);
+        }
+
+        boolean result = this.saveOrUpdate(entity);
+        return result;
+    }
+
+    /**
+     * 获取表单数据
+     *
+     * @param id ID
+     * @return {@link PkgDetailForm} – 表单数据
+     */
+    @Override
+    public PkgDetailVO getItem(Long id) {
+        PkgDetailEntity entity = this.getById(id);
+        return converter.entity2VO(entity);
+    }
+
+    /**
+     * 批量删除角色
+     *
+     * @param ids 角色ID，多个使用英文逗号(,)分割
+     * @return
+     */
+    @Override
+    public boolean delete(String ids) {
+        List<Long> lngIds = Arrays.stream(ids.split(","))
+                .map(Long::parseLong)
+                .toList();
+        for (Long id : lngIds) {
+            PkgDetailEntity entity = this.getById(id);
+            Assert.isTrue(entity != null, "id= " + id + " pkg不存在");
+            boolean result = this.removeById(id);
+        }
+        return true;
     }
 }
 

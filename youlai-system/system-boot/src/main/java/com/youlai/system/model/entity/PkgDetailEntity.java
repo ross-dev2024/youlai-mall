@@ -19,15 +19,16 @@ import java.math.BigDecimal;
 public class PkgDetailEntity  extends BaseEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-//
-//    /**
-//     * 包裹ID
-//     */
-//    @TableField(value = "pkg_id")
-//    private Integer pkgId;
-    @TableField(value = "pkg_id", property = "pkg.id")
-    private PkgEntity pkg;
+    private Long id;
+
+    /**
+     * 包裹ID
+     */
+    @TableField(value = "pkg_id")
+    private Integer pkgId;
+
+//    @TableField(value = "pkg_id", property = "pkg.id")
+//    private PkgEntity pkg;
 
     @TableField(value = "item_id")
     private Integer itemId;

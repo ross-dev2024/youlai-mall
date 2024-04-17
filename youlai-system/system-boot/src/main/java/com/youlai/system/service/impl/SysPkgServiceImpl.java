@@ -77,7 +77,7 @@ public class SysPkgServiceImpl extends ServiceImpl<SysPkgMapper, PkgEntity> impl
         PkgEntity entity = null;
         if (id != null) {
             entity = this.getById(id);
-            Assert.isTrue(entity != null, "角色不存在");
+            Assert.isTrue(entity != null, "pkg不存在");
         }
 
         String code = form.getCode();
@@ -86,7 +86,7 @@ public class SysPkgServiceImpl extends ServiceImpl<SysPkgMapper, PkgEntity> impl
                 .and(wrapper ->
                         wrapper.eq(PkgEntity::getCode, code).or().eq(PkgEntity::getName, form.getName())
                 ));
-        Assert.isTrue(count == 0, "角色名称或角色编码已存在，请修改后重试！");
+        Assert.isTrue(count == 0, "编码已存在，请修改后重试！");
 
         // 实体转换
         entity = converter.form2Entity(form);
