@@ -21,16 +21,16 @@ public interface SysPkgDetailService extends IService<PkgDetailEntity> {
     /**
      * 保存
      *
-     * @param pkgForm pkg表单数据
+     * @param pkgForm item表单数据
      * @return {@link Boolean}
      */
     boolean createOrUpdate(Long id, PkgDetailForm pkgForm);
 
     /**
-     * 获取pkg单数据
+     * 获取item单数据
      *
      * @param id 角色ID
-     * @return  {@link PkgDetailForm} – pkg单数据
+     * @return  {@link PkgDetailForm} – item单数据
      */
     PkgDetailVO getItem(Long id);
 

@@ -1,7 +1,6 @@
 package com.youlai.system.model.vo;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.youlai.system.model.entity.PkgEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -41,7 +40,7 @@ public class PkgDetailPageVO {
     private String mobile;
 
     @Schema(description = "状态((1:正常;0:禁用))")
-    private Boolean status;
+    private Integer status;
 
     @Schema(description = "注释")
     private String comment;
@@ -50,16 +49,17 @@ public class PkgDetailPageVO {
     private Boolean deleted;
 
     @Schema(description = "创建时间")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
 
-    @Schema(description = "更新时间")
-    private Date updateTime;
-
-    @Schema(description = "创建人ID")
-    private Long createBy;
-
-    @Schema(description = "更新人ID")
-    private Long updateBy;
+//    @Schema(description = "更新时间")
+//    private Date updateTime;
+//
+//    @Schema(description = "创建人ID")
+//    private Long createBy;
+//
+//    @Schema(description = "更新人ID")
+//    private Long updateBy;
 
 }
 

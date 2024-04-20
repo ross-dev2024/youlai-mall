@@ -1,11 +1,9 @@
 package com.youlai.system.model.form;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 @Schema(description ="")
 @Data
@@ -32,7 +30,7 @@ public class PkgDetailForm {
     private String mobile;
 
     @Schema(description = "状态((1:正常;0:禁用))")
-    private Boolean status;
+    private Integer status;
 
     @Schema(description = "注释")
     private String comment;

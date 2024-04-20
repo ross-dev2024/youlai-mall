@@ -1,16 +1,10 @@
 package com.youlai.system.service.impl;
 
 import cn.hutool.core.lang.Assert;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.youlai.system.converter.PkgConverter;
 import com.youlai.system.converter.PkgDetailConverter;
 import com.youlai.system.mapper.SysPkgDetailMapper;
-import com.youlai.system.model.bo.UserBO;
-import com.youlai.system.model.entity.PkgDetailEntity;
 import com.youlai.system.model.entity.PkgDetailEntity;
 import com.youlai.system.model.form.PkgDetailForm;
 import com.youlai.system.model.query.PkgDetailPageQuery;
