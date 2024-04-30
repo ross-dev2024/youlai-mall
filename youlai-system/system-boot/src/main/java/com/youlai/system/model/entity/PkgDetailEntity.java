@@ -27,6 +27,13 @@ public class PkgDetailEntity  extends BaseEntity {
     @TableField(value = "pkg_id")
     private Integer pkgId;
 
+//    /**
+//     * 品物名
+//     */
+//    @TableField(value = "pkg_name")
+//    private String pkgName;
+
+
 //    @TableField(value = "pkg_id", property = "pkg.id")
 //    private PkgEntity pkg;
 
@@ -58,7 +65,7 @@ public class PkgDetailEntity  extends BaseEntity {
      * 状态((1:正常;0:禁用))
      */
     @TableField(value = "status")
-    private Boolean status;
+    private Integer status;
 
     /**
      * 注释

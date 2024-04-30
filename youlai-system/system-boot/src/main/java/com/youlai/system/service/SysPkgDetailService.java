@@ -6,7 +6,6 @@ import com.youlai.system.model.entity.PkgDetailEntity;
 import com.youlai.system.model.form.PkgDetailForm;
 import com.youlai.system.model.query.PkgDetailPageQuery;
 import com.youlai.system.model.vo.PkgDetailPageVO;
-import com.youlai.system.model.vo.PkgDetailVO;
 
 /**
  * 用户信息表(SysPkgDetail)表服务接口
@@ -32,7 +31,7 @@ public interface SysPkgDetailService extends IService<PkgDetailEntity> {
      * @param id 角色ID
      * @return  {@link PkgDetailForm} – item单数据
      */
-    PkgDetailVO getItem(Long id);
+    PkgDetailForm getItem(Long id);
 
     /**
      * 批量删除item

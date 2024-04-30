@@ -9,7 +9,6 @@ import com.youlai.system.model.entity.PkgDetailEntity;
 import com.youlai.system.model.form.PkgDetailForm;
 import com.youlai.system.model.query.PkgDetailPageQuery;
 import com.youlai.system.model.vo.PkgDetailPageVO;
-import com.youlai.system.model.vo.PkgDetailVO;
 import com.youlai.system.service.SysPkgDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -104,9 +103,9 @@ public class SysPkgDetailServiceImpl extends ServiceImpl<SysPkgDetailMapper, Pkg
      * @return {@link PkgDetailForm} – 表单数据
      */
     @Override
-    public PkgDetailVO getItem(Long id) {
+    public PkgDetailForm getItem(Long id) {
         PkgDetailEntity entity = this.getById(id);
-        return converter.entity2VO(entity);
+        return converter.entity2Form(entity);
     }
 
     /**

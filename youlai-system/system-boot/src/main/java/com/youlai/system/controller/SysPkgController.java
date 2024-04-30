@@ -1,6 +1,5 @@
 package com.youlai.system.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.youlai.common.result.PageResult;
 import com.youlai.common.result.Result;
@@ -105,10 +104,19 @@ public class SysPkgController {
 //    @PreAuthorize("@ss.hasPerm('sys:role:add')")
 //    @PreventDuplicateResubmit
     public Result createDetail(@Valid @RequestBody PkgDetailForm form) {
-        boolean result = detailService.createOrUpdate(null,form);
+        boolean result = detailService.createOrUpdate(null, form);
         return Result.judge(result);
     }
 
+    @Operation(summary = "item取得")
+    @GetMapping("/detail/{id}/form")
+//    @PreAuthorize("@ss.hasPerm('sys:role:add')")
+//    @PreventDuplicateResubmit
+    public Result getDetail(
+            @Parameter(description = "itemID") @PathVariable Long id) {
+        PkgDetailForm formData = detailService.getItem(id);
+        return Result.success(formData);
+    }
 
     @Operation(summary = "修改item")
     @PutMapping(value = "/detail/{id}")
@@ -116,7 +124,7 @@ public class SysPkgController {
     public Result updateDetail(
             @PathVariable Long id,
             @Valid @RequestBody PkgDetailForm form) {
-        boolean result = detailService.createOrUpdate(id,form);
+        boolean result = detailService.createOrUpdate(id, form);
         return Result.judge(result);
     }
 
