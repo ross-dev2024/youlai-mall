@@ -14,6 +14,9 @@ public class PkgDetailForm {
     @Schema(description = "包裹ID")
     private Integer pkgId;
 
+//    @Schema(description = "包裹名")
+//    private String pkgName;
+
     @Schema(description = "${column.comment}")
     private Integer itemId;
 

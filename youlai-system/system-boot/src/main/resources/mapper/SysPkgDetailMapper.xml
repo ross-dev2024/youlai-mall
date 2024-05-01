@@ -55,9 +55,9 @@
             <if test='queryParams.status!=null'>
                 AND d.status = #{queryParams.status}
             </if>
-<!--            <if test='deptId!=null'>-->
-<!--                AND concat(',',concat(d.tree_path,',',d.id),',') like concat('%,',#{deptId},',%')-->
-<!--            </if>-->
+            <if test='queryParams.pkgId!=null'>
+                AND concat(',',concat(p.tree_path,',',p.id),',') like concat('%,',#{queryParams.pkgId},',%')
+            </if>
 
         </where>
     </select>

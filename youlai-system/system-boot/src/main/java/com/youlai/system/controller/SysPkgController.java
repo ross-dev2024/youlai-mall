@@ -3,6 +3,7 @@ package com.youlai.system.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.youlai.common.result.PageResult;
 import com.youlai.common.result.Result;
+import com.youlai.common.web.model.Option;
 import com.youlai.system.model.form.PkgDetailForm;
 import com.youlai.system.model.form.PkgForm;
 import com.youlai.system.model.query.PkgDetailPageQuery;
@@ -18,6 +19,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * SysPkgController
@@ -47,6 +50,13 @@ public class SysPkgController {
             @ParameterObject PkgPageQuery queryParams) {
         IPage<PkgPageVO> result = pkgService.getPage(queryParams);
         return PageResult.success(result);
+    }
+
+    @Operation(summary = "获取下拉选项")
+    @GetMapping("/options")
+    public Result<List<Option>> listPkgOptions() {
+        List<Option> list = pkgService.listPkgOptions();
+        return Result.success(list);
     }
 
     @Operation(summary = "新增pkg")
